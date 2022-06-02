@@ -1,7 +1,7 @@
 #!/bin/bash
 
 arc=$(uname -srvmo)
-nproc=$(uname --all)
+nproc=$(nproc)
 vproc=$(cat /proc/cpuinfo | grep processor | wc -l)
 nram=$(free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)",$3,$2,$3*100/$2 }')
 ndisk=$(df -Bm -a |grep dev/mapper | awk '{sum+=$3}END{printf sum}')
